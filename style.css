@@ -1,0 +1,57 @@
+:root {
+    /*Primary*/
+    --soft-cyan-full-slider-bar: hsl(174, 77%, 80%);
+    --strong-cyan-slider-backround: hsl(174, 86%, 45%);
+    --light-grayish-red-discount-background: hsl(14, 92%, 95%);
+    --light-red-discount-text: hsl(15, 100%, 70%);
+    --pale-blue-cta-text: hsl(226, 100%, 87%);
+    /*Neutral*/
+    --white-pricing-component-background: hsl (0, 0%, 100%);
+    --very-pale-blue-main-background: hsl(230, 100%, 99%);
+    --light-grayish-blue-empty-slider-bar: hsl(224, 65%, 95%);
+    --light-grayish-blue-toggle-background: hsl(223, 50%, 87%);
+    --grayish-blue-text: hsl(225, 20%, 60%);
+    --dark-desaturated-blue-text-cta-background: hsl(227, 35%, 25%);
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(./assets/fonts/Manrope/Manrope-VariableFont_wght.ttf);
+}
+
+body {
+    display: grid;
+    min-height: 100svh;
+    max-width: 100svw;
+    font-weight: 600;
+    margin: 0;
+    background-color: var(--very-pale-blue-main-background);
+}
+
+main {
+    display: grid;
+    min-height: 100svh;
+    background-image: url(./images/bg-pattern.svg);
+    background-repeat: no-repeat;
+    background-size: 100% 50%;
+    place-items: center;
+}
+section[class="interactive-pricing-card"]{}
+section[class="interactive-card-top"]{}
+section[class="interactive-pricing-card-title"]{}
+section[class="pageviews"]{}
+section[class="pageviews-per-month"]{}
+span[class="cost"]{}
+span[class="month"]{}
+label[for="cost-slider"]{}
+input[id="cost-slider"]{}
+section[class="billing-type-container"]{}
+label[for="billing-monthly"]{}
+input[id="billing-monthly"]{}
+label[for="billing-yearly"]{}
+input[id="billing-yearly"]{}
+input[id="billing-yearly"] span{}
+footer{}
+ul{}
+li{}
+button{}
