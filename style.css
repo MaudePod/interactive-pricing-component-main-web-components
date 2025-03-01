@@ -6,7 +6,7 @@
     --light-red-discount-text: hsl(15, 100%, 70%);
     --pale-blue-cta-text: hsl(226, 100%, 87%);
     /*Neutral*/
-    --white-pricing-component-background: hsl (0, 0%, 100%);
+    --white-pricing-component-background: hsl(0, 0%, 100%);
     --very-pale-blue-main-background: hsl(230, 100%, 99%);
     --light-grayish-blue-empty-slider-bar: hsl(224, 65%, 95%);
     --light-grayish-blue-toggle-background: hsl(223, 50%, 87%);
@@ -34,24 +34,77 @@ main {
     background-image: url(./images/bg-pattern.svg);
     background-repeat: no-repeat;
     background-size: 100% 50%;
-    place-items: center;
+    place-content: center;
+    text-align: center;
 }
-section[class="interactive-pricing-card"]{}
-section[class="interactive-card-top"]{}
+header{
+    display: grid;
+    grid-auto-rows: min-content;
+}
+section[class="interactive-pricing-card"]{
+ background-color: var(--white-pricing-component-background);
+ display: grid;
+ width: 700px;
+ height: 300px;
+ box-sizing: border-box;
+ padding: 50px;
+ border-radius: 10px;
+}
+section[class="interactive-card-top"]{
+    display: grid;
+    grid-template-columns: 1fr auto;
+    width: 100%;
+}
 section[class="interactive-pricing-card-title"]{}
-section[class="pageviews"]{}
+section[class="pageviews"]{
+    width: max-content;
+}
 section[class="pageviews-per-month"]{}
 span[class="cost"]{}
 span[class="month"]{}
 label[for="cost-slider"]{}
-input[id="cost-slider"]{}
-section[class="billing-type-container"]{}
+input[id="cost-slider"]{
+    accent-color: var(--soft-cyan-full-slider-bar);
+    appearance: none;
+    display: grid;
+}
+input[id="cost-slider"]::-moz-range-thumb{
+   
+}
+input[id="cost-slider"]::-webkit-slider-thumb{
+    appearance: none;
+    background-image:url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-color: var(--strong-cyan-slider-backround);
+    border-radius:50%;
+    background-position:center;
+    display: grid;
+    background-size: 60%;
+    height: 30px;
+    width: 30px;
+    padding:10px;
+    box-sizing: content-box;
+    cursor: pointer;
+    box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-backround);
+}   
+section[class="billing-type-container"] {
+    display: grid;
+    width: min-content;
+    grid-auto-flow: column;
+    gap: 10px;
+    text-wrap: nowrap;
+    place-self: center;
+}
 label[for="billing-monthly"]{}
 input[id="billing-monthly"]{}
 label[for="billing-yearly"]{}
 input[id="billing-yearly"]{}
 input[id="billing-yearly"] span{}
 footer{}
-ul{}
+ul{
+    text-align:start ;
+     list-style-position:inside ;
+     list-style-image:url(./images/icon-check.svg) ;
+}
 li{}
 button{}
