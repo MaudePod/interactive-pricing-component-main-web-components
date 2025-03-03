@@ -28,61 +28,68 @@
 <body>
   <main>
     <header>
-    <h1>
-      Simple, traffic-based pricing
-    </h1>
-    <h2>
-      Sign-up for our 30-day trial. No credit card required.
-    </h2>
-  </header>
+      <h1>
+        Simple, traffic-based pricing
+      </h1>
+      <h2>
+        Sign-up for our 30-day trial. No credit card required.
+      </h2>
+    </header>
 
     <section class="interactive-pricing-card">
 
       <section class="interactive-card-top">
 
-          <section class="pageviews">100k PAGEVIEWS</section>
-          <section class="pageviews-per-month">
-            <span class="cost"></span>
-            <span class="month">/month</span>
-          </section>
+        <section class="pageviews">100k PAGEVIEWS</section>
+        <section class="pageviews-per-month">
+          <span class="cost"></span>
+          <span class="month">/month</span>
         </section>
-        <label for="cost-slider" aria-label="sets cost per month"></label>
-        <input type="range" name="cost-slider" id="cost-slider">
-
-        <section class="billing-type-container">
-          <label for="billing-monthly">
-            Monthly Billing
-            <input type="radio" name="billing-type" id="billing-monthly">
-          </label>
-          <label for="billing-yearly">
-       
-            <input type="radio" name="billing-type" id="billing-yearly">
-            Yearly Billing
-          </label>
-          <span>
-            25% discount
-          </span>
-        </section>
-        <footer>
-          <ul>
-            <li>
-              Unlimited websites
-            </li>
-            <li>
-              100% data ownership
-            </li>
-            <li>
-              Email reports
-            </li>
-          </ul>
-  
-          <button>
-            Start my trial
-          </button>
-  
-        </footer>
+        <label for="cost-slider" aria-label="sets cost per month">
+          <input type="range" name="cost-slider" id="cost-slider" min="0" max="5">
+        </label>
       </section>
-   
+     
+
+      <section class="billing-type-container">
+        <span>
+          Monthly Billing
+        </span>
+        <span class="billing">
+          <label for="billing-monthly" aria-label="billing monthly">
+            <input type="radio" name="billing-type" id="billing-monthly" checked>
+          </label>
+          <label for="billing-yearly" aria-label="billing yearly">
+            <input type="radio" name="billing-type" id="billing-yearly">
+          </label>
+        </span>
+        <span>
+          Yearly Billing
+        </span>
+        <span class="discount">
+          25%
+        </span>
+      </section>
+      <footer>
+        <ul>
+          <li>
+            Unlimited websites
+          </li>
+          <li>
+            100% data ownership
+          </li>
+          <li>
+            Email reports
+          </li>
+        </ul>
+
+        <button>
+          Start my trial
+        </button>
+
+      </footer>
+    </section>
+
     </section>
   </main>
 
@@ -90,7 +97,6 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/MaudePod">Maude Pod</a>.
   </div>
-
 </body>
 
 </html>
