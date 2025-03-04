@@ -12,6 +12,7 @@
 
   <title>Frontend Mentor | Interactive pricing component</title>
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="./main.js"></script>
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
@@ -36,59 +37,312 @@
       </h2>
     </header>
 
-    <section class="interactive-pricing-card">
+    <interactive-pricing-component value="1">
+      <template shadowrootmode="open">
+        <section class="interactive-pricing-card">
 
-      <section class="interactive-card-top">
+          <section class="interactive-card-top">
 
-        <section class="pageviews">100k PAGEVIEWS</section>
-        <section class="pageviews-per-month">
-          <span class="cost"></span>
-          <span class="month">/month</span>
+            <section class="pageviews">100k PAGEVIEWS</section>
+            <section class="pageviews-per-month">
+              <span class="cost">$16</span>
+              <span class="month"> / month</span>
+            </section>
+            <label for="cost-slider" aria-label="sets cost per month">
+              <input type="range" name="cost-slider" id="cost-slider" min="0" max="4" value="2">
+            </label>
+          </section>
+
+
+          <section class="billing-type-container">
+            <span>
+              Monthly Billing
+            </span>
+            <span class="billing">
+              <label for="billing-monthly" aria-label="billing monthly">
+                <input type="radio" name="billing-type" id="billing-monthly" checked>
+              </label>
+              <label for="billing-yearly" aria-label="billing yearly">
+                <input type="radio" name="billing-type" id="billing-yearly">
+              </label>
+            </span>
+            <span>
+              Yearly Billing
+            </span>
+            <span class="discount">
+              25%
+            </span>
+          </section>
+          <footer>
+            <ul>
+              <li>
+                Unlimited websites
+              </li>
+              <li>
+                100% data ownership
+              </li>
+              <li>
+                Email reports
+              </li>
+            </ul>
+
+            <button>
+              Start my trial
+            </button>
+
+          </footer>
         </section>
-        <label for="cost-slider" aria-label="sets cost per month">
-          <input type="range" name="cost-slider" id="cost-slider" min="0" max="5">
-        </label>
-      </section>
-     
+        <style>
+          section[class="interactive-pricing-card"] {
+            display: grid;
+            background-color: var(--white-pricing-component-background);
+            color: var(--grayish-blue-text);
+            width: 700px;
+            height: 340px;
+            box-sizing: border-box;
+            padding: 50px;
+            border-radius: 10px;
+            gap: 30px;
+            box-shadow: 0px 0px 20px 1px var(--light-grayish-blue-toggle-background);
+          }
 
-      <section class="billing-type-container">
-        <span>
-          Monthly Billing
-        </span>
-        <span class="billing">
-          <label for="billing-monthly" aria-label="billing monthly">
-            <input type="radio" name="billing-type" id="billing-monthly" checked>
-          </label>
-          <label for="billing-yearly" aria-label="billing yearly">
-            <input type="radio" name="billing-type" id="billing-yearly">
-          </label>
-        </span>
-        <span>
-          Yearly Billing
-        </span>
-        <span class="discount">
-          25%
-        </span>
-      </section>
-      <footer>
-        <ul>
-          <li>
-            Unlimited websites
-          </li>
-          <li>
-            100% data ownership
-          </li>
-          <li>
-            Email reports
-          </li>
-        </ul>
+          section[class="interactive-card-top"] {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            width: 100%;
+            row-gap: 20px;
+          }
 
-        <button>
-          Start my trial
-        </button>
 
-      </footer>
-    </section>
+          section[class="pageviews"] {
+            width: max-content;
+            font-size: 800;
+          }
+
+          section[class="pageviews-per-month"] {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            place-items: center;
+          }
+
+          span[class="cost"] {
+            font-size: xx-large;
+            color: var(--dark-desaturated-blue-text-cta-background);
+          }
+
+          label[for="cost-slider"] {
+            display: grid;
+            align-items: center;
+            height: 100%;
+            grid-column: span 2;
+          }
+
+          input[id="cost-slider"] {
+            appearance: none;
+            background-color: var(--light-grayish-blue-empty-slider-bar);
+            height: 10px;
+            border-radius: 30px;
+          }
+
+          input[id="cost-slider"]::-moz-range-progress {
+            background-color: var(--strong-cyan-slider-backround);
+            height: 10px;
+          }
+
+          input[id="cost-slider"]::-moz-range-track {
+            background-color: var(--light-grayish-blue-empty-slider-bar);
+            height: 10px;
+          }
+
+          input[id="cost-slider"]::-moz-range-thumb {
+            appearance: none;
+            background-image: url(./images/icon-slider.svg);
+            background-repeat: no-repeat;
+            background-color: var(--strong-cyan-slider-backround);
+            border-color: var(--strong-cyan-slider-backround);
+            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-backround);
+            border-radius: 50%;
+            background-position: center;
+            display: grid;
+            background-size: 60%;
+            height: 30px;
+            width: 30px;
+            padding: 10px;
+            box-sizing: content-box;
+            cursor: pointer;
+          }
+
+          input[id="cost-slider"]::-webkit-slider-thumb {
+            appearance: none;
+            background-image: url(./images/icon-slider.svg);
+            background-repeat: no-repeat;
+            background-color: var(--strong-cyan-slider-backround);
+            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-backround);
+            border-radius: 50%;
+            background-position: center;
+            display: grid;
+            background-size: 60%;
+            height: 30px;
+            width: 30px;
+            padding: 10px;
+            transform: translateY(-20px);
+            box-sizing: content-box;
+            cursor: pointer;
+          }
+
+
+          input[type="radio"] {
+            appearance: none;
+          }
+
+          input[type="radio"]:checked {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: var(--white-pricing-component-background);
+          }
+
+          input[id="cost-slider"]::-webkit-slider-runnable-track {
+            border-radius: 30px;
+            height: 10px;
+          }
+
+          input[value='0']::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 0%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          input[value='1']::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 30%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          input[value='2']::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 50%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          input[value='3']::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 70%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          input[value='4']::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 100%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          section[class="billing-type-container"] {
+            display: grid;
+            width: min-content;
+            grid-auto-flow: column;
+            text-wrap: nowrap;
+            place-self: center;
+            place-items: center;
+            gap: 10px;
+          }
+
+          span[class="billing"] {
+            background-color: var(--light-grayish-blue-empty-slider-bar);
+            border-radius: 30px;
+            width: max-content;
+            padding: 0px 5px;
+          }
+
+          span[class="billing"]:hover {
+            background-color: var(--strong-cyan-slider-backround);
+          }
+
+          span[class="discount"] {
+            background-color: var(--light-grayish-red-discount-background);
+            color: var(--light-red-discount-text);
+            border-radius: 30px;
+            padding: 5px 10px;
+          }
+
+          label[for="billing-monthly"],
+          label[for="billing-yearly"] {
+            height: 100%;
+            width: 100%;
+            cursor: pointer;
+          }
+
+          footer {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+          }
+
+          ul {
+            text-align: start;
+            list-style-position: inside;
+            list-style-image: url(./images/icon-check.svg);
+          }
+
+          button {
+            height: 40px;
+            width: 150px;
+            background-color: var(--dark-desaturated-blue-text-cta-background);
+            color: var(--pale-blue-cta-text);
+            border-radius: 30px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            border-color: transparent;
+            font-weight: 800;
+          }
+
+          @container(inline-size < 1000px) {
+
+            section[class="interactive-pricing-card"] {
+              height: 60cqh;
+              width: 90cqw;
+              container: interactive-pricing-card / inline-size;
+              place-self: center;
+              text-align: center;
+              padding: 30px;
+              font-size: small;
+            }
+
+            section[class="interactive-card-top"] {
+              display: grid;
+              grid-template-columns: unset;
+              grid-template-areas:
+                "pageviews"
+                "cost-slider"
+                "pageviews-per-month";
+              width: 100cqw;
+            }
+
+            section[class="billing-type-container"] {
+              gap: 1px;
+            }
+
+            section[class="pageviews"] {
+              grid-area: pageviews;
+              width: 100cqw;
+            }
+
+            label[for="cost-slider"] {
+              grid-area: cost-slider;
+            }
+
+            section[class="pageviews-per-month"] {
+              grid-area: pageviews-per-month;
+            }
+
+            ul {
+              display: grid;
+              place-items: center;
+              padding: 0;
+            }
+
+            footer {
+              display: grid;
+              grid-template-columns: 1fr;
+              place-items: center;
+              text-align: center;
+              width: 100cqw;
+            }
+          }
+        </style>
+      </template>
+    </interactive-pricing-component>
 
     </section>
   </main>

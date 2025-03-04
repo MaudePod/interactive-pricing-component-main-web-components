@@ -1,4 +1,4 @@
-[View Solution](https://maudepod.github.io/interactive-pricing-component-main-web-components/)
+[View Solution](https://maudepod.github.io/interactive-pricing-component-main-web-components)
 
 # Frontend Mentor - Interactive pricing component
 
