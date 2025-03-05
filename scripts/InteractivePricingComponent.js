@@ -12,7 +12,8 @@ export default class InteractivePricingComponent extends HTMLElement {
     }
     updatePaymentPlan = () => {
         const value = this.#internals.shadowRoot.querySelector('input[id="cost-slider"]').value;
-        const discount = this.getDiscount();
+        const yearlyDiscount=25;
+        const discount = this.getDiscount(yearlyDiscount);
         this.#internals.shadowRoot.querySelector('input[id="cost-slider"]').setAttribute('value', value);
         switch (value) {
             case "0":
@@ -40,11 +41,11 @@ export default class InteractivePricingComponent extends HTMLElement {
                 break;
         }
     }
-    getDiscount() {
+    getDiscount=(discountPercentage)=> {
         let discount = 1;
-        const twentyFivePercentDiscount = 0.75;
+        const discountAmount = (discountPercentage/100);
         if (this.#internals.shadowRoot.querySelector('input[id="billing-yearly"]').checked == true) {
-            discount = twentyFivePercentDiscount;
+            discount -= discountAmount;
         }
         return discount;
     }

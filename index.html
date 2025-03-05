@@ -71,6 +71,7 @@
             </span>
             <span class="discount">
               25%
+              <span class="discount-word">discount</span>
             </span>
           </section>
           <footer>
@@ -238,6 +239,8 @@
           }
 
           span[class="billing"] {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             background-color: var(--light-grayish-blue-empty-slider-bar);
             border-radius: 30px;
             width: max-content;
@@ -325,7 +328,9 @@
             section[class="pageviews-per-month"] {
               grid-area: pageviews-per-month;
             }
-
+            span[class="discount-word"]{
+              display: none;
+            }
             ul {
               display: grid;
               place-items: center;
