@@ -20,17 +20,17 @@
 }
 
 @font-face {
-    font-family: 'Manrope';
-    src: url(./assets/fonts/Manrope/static/Manrope-Bold.ttf);
+    font-family: 'Manrope', sans-serif;
+    src: url(./fonts/Manrope/Manrope-VariableFont_wght.ttf);
 }
 
 body {
     display: grid;
-    min-height: 100svh;
+    max-width: 100svh;
     max-width: 100svw;
     font-weight: 600;
     margin: 0;
-    font-family: 'Manrope';
+    font-family: 'Manrope', sans-serif;
     background-color: var(--very-pale-blue-main-background);
     container: body / inline-size;
 }
