@@ -4,15 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Frontend Mentor | Interactive pricing component">
-
   <!-- displays site properly based on user's device -->
-
+  <meta name="description" content="Frontend Mentor | Interactive pricing component">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <title>Frontend Mentor | Interactive pricing component</title>
-  <link rel="stylesheet" href="style.css">
-  <script type="module" src="./main.js"></script>
+
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
     .attribution {
@@ -24,6 +21,8 @@
       color: hsl(228, 45%, 44%);
     }
   </style>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js" defer></script>
 </head>
 
 <body>
@@ -31,38 +30,40 @@
     <header>
       <h1>
         Simple, traffic-based pricing
+
       </h1>
       <h2>
         Sign-up for our 30-day trial. No credit card required.
       </h2>
     </header>
-
     <interactive-pricing-component value="1">
       <template shadowrootmode="open">
-        <section class="interactive-pricing-card">
-
-          <section class="interactive-card-top">
-
-            <section class="pageviews">100k PAGEVIEWS</section>
-            <section class="pageviews-per-month">
-              <span class="cost">$16</span>
-              <span class="month"> / month</span>
-            </section>
+        <div class="interactive-pricing-card">
+          <article class="interactive-card-top">
+            <div class="pageviews">
+              100k Pageviews
+            </div>
+            <div class="pageviews-per-month">
+              <span class="cost">
+                $16.00
+              </span>
+              <span class="month">
+                /month
+              </span>
+            </div>
             <label for="cost-slider" aria-label="sets cost per month">
               <input type="range" name="cost-slider" id="cost-slider" min="0" max="4" value="2">
             </label>
-          </section>
-
-
-          <section class="billing-type-container">
+          </article>
+          <article class="billing-type-container">
             <span>
               Monthly Billing
             </span>
             <span class="billing">
-              <label for="billing-monthly" aria-label="billing monthly">
+              <label for="billing-monthly">
                 <input type="radio" name="billing-type" id="billing-monthly" checked>
               </label>
-              <label for="billing-yearly" aria-label="billing yearly">
+              <label for="billing-yearly">
                 <input type="radio" name="billing-type" id="billing-yearly">
               </label>
             </span>
@@ -71,9 +72,11 @@
             </span>
             <span class="discount">
               25%
-              <span class="discount-word">discount</span>
             </span>
-          </section>
+            <span class="discount-word">
+              discount
+            </span>
+          </article>
           <footer>
             <ul>
               <li>
@@ -86,15 +89,13 @@
                 Email reports
               </li>
             </ul>
-
             <button>
               Start my trial
             </button>
-
           </footer>
-        </section>
+        </div>
         <style>
-          section[class="interactive-pricing-card"] {
+          div[class="interactive-pricing-card"] {
             display: grid;
             background-color: var(--white-pricing-component-background);
             color: var(--grayish-blue-text);
@@ -107,23 +108,26 @@
             box-shadow: 0px 0px 20px 1px var(--light-grayish-blue-toggle-background);
           }
 
-          section[class="interactive-card-top"] {
+          article[class="interactive-card-top"] {
             display: grid;
             grid-template-columns: 1fr auto;
             width: 100%;
             row-gap: 20px;
           }
 
-
-          section[class="pageviews"] {
+          div[class="pageviews"] {
             width: max-content;
-            font-size: 800;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: medium;
           }
 
-          section[class="pageviews-per-month"] {
+          div[class="pageviews-per-month"] {
             display: grid;
             grid-template-columns: 1fr 1fr;
             place-items: center;
+            gap: 5px;
           }
 
           span[class="cost"] {
@@ -146,7 +150,7 @@
           }
 
           input[id="cost-slider"]::-moz-range-progress {
-            background-color: var(--strong-cyan-slider-backround);
+            background-color: var(--strong-cyan-slider-background);
             height: 10px;
           }
 
@@ -155,13 +159,13 @@
             height: 10px;
           }
 
-          input[id="cost-slider"]::-moz-range-thumb {
+          input[id="coost-slider"]::-moz-range-thumb {
             appearance: none;
             background-image: url(./images/icon-slider.svg);
             background-repeat: no-repeat;
-            background-color: var(--strong-cyan-slider-backround);
-            border-color: var(--strong-cyan-slider-backround);
-            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-backround);
+            background-color: var(--strong-cyan-slider-background);
+            border-color: var(--strong-cyan-slider-background);
+            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-background);
             border-radius: 50%;
             background-position: center;
             display: grid;
@@ -177,8 +181,8 @@
             appearance: none;
             background-image: url(./images/icon-slider.svg);
             background-repeat: no-repeat;
-            background-color: var(--strong-cyan-slider-backround);
-            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-backround);
+            background-color: var(--strong-cyan-slider-background);
+            box-shadow: 0px 14px 30px 1px var(--strong-cyan-slider-background);
             border-radius: 50%;
             background-position: center;
             display: grid;
@@ -191,6 +195,34 @@
             cursor: pointer;
           }
 
+          input[id="cost-slider"]::-webkit-slider-runnable-track {
+            border-radius: 30px;
+            height: 10px;
+          }
+
+          input[value="0"]::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-background) 0%, var(--light-grayish-blue-empty-slider-bar) 0%);
+          }
+
+          input[value="1"]::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-background) 30%, var(--light-grayish-blue-empty-slider-bar) 30%);
+
+          }
+
+          input[value="2"]::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-background) 50%, var(--light-grayish-blue-empty-slider-bar) 50%);
+
+          }
+
+          input[value="3"]::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-background) 70%, var(--light-grayish-blue-empty-slider-bar) 70%);
+
+          }
+
+          input[value="4"]::-webkit-slider-runnable-track {
+            background: linear-gradient(to right, var(--strong-cyan-slider-background) 100%, var(--light-grayish-blue-empty-slider-bar) 100%);
+
+          }
 
           input[type="radio"] {
             appearance: none;
@@ -203,32 +235,7 @@
             background-color: var(--white-pricing-component-background);
           }
 
-          input[id="cost-slider"]::-webkit-slider-runnable-track {
-            border-radius: 30px;
-            height: 10px;
-          }
-
-          input[value='0']::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 0%, var(--light-grayish-blue-empty-slider-bar) 0%);
-          }
-
-          input[value='1']::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 30%, var(--light-grayish-blue-empty-slider-bar) 0%);
-          }
-
-          input[value='2']::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 50%, var(--light-grayish-blue-empty-slider-bar) 0%);
-          }
-
-          input[value='3']::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 70%, var(--light-grayish-blue-empty-slider-bar) 0%);
-          }
-
-          input[value='4']::-webkit-slider-runnable-track {
-            background: linear-gradient(to right, var(--strong-cyan-slider-backround) 100%, var(--light-grayish-blue-empty-slider-bar) 0%);
-          }
-
-          section[class="billing-type-container"] {
+          article[class="billing-type-container"] {
             display: grid;
             width: min-content;
             grid-auto-flow: column;
@@ -243,12 +250,12 @@
             grid-template-columns: 1fr 1fr;
             background-color: var(--light-grayish-blue-empty-slider-bar);
             border-radius: 30px;
-            width: max-content;
+            width: 45px;
             padding: 0px 5px;
           }
 
           span[class="billing"]:hover {
-            background-color: var(--strong-cyan-slider-backround);
+            background-color: var(--strong-cyan-slider-background);
           }
 
           span[class="discount"] {
@@ -287,36 +294,34 @@
             place-items: center;
             cursor: pointer;
             border-color: transparent;
-            font-weight: 800;
+            font-weight: 809;
           }
 
           @container(inline-size < 1000px) {
-
-            section[class="interactive-pricing-card"] {
+            div[class="interactive-pricing-card"] {
               height: 60cqh;
               width: 90cqw;
               container: interactive-pricing-card / inline-size;
-              place-self: center;
               text-align: center;
+              margin: auto;
               padding: 30px;
               font-size: small;
             }
 
-            section[class="interactive-card-top"] {
+            article[class="interactive-card-top"] {
               display: grid;
-              grid-template-columns: unset;
               grid-template-areas:
                 "pageviews"
                 "cost-slider"
                 "pageviews-per-month";
-              width: 100cqw;
+              gap: 30px;
             }
 
-            section[class="billing-type-container"] {
-              gap: 1px;
+            article[class="billing-type-container"] {
+              gap: 5px;
             }
 
-            section[class="pageviews"] {
+            div[class="pageviews"] {
               grid-area: pageviews;
               width: 100cqw;
             }
@@ -325,12 +330,18 @@
               grid-area: cost-slider;
             }
 
-            section[class="pageviews-per-month"] {
+            div[class="pageviews-per-month"] {
               grid-area: pageviews-per-month;
+              place-items: center;
+              width: min-content;
+              margin: 0 auto;
+              gap: 10px;
             }
-            span[class="discount-word"]{
+
+            span[class="discount-word"] {
               display: none;
             }
+
             ul {
               display: grid;
               place-items: center;
@@ -348,10 +359,9 @@
         </style>
       </template>
     </interactive-pricing-component>
-
-    </section>
   </main>
 
+ 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="https://github.com/MaudePod">Maude Pod</a>.
